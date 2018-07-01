@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "this" {
   count                                = "${var.create ? 1 : 0}"
 
-  bucket_prefix                        = "${var.name_prefix}-"
+  bucket                               = "${var.bucket_name}"
   acl                                  = "${var.acl}"
   policy                               = "${var.policy}"
   force_destroy                        = "${var.force_destroy}"
@@ -16,5 +16,5 @@ resource "aws_s3_bucket" "this" {
   replication_configuration            = "${var.replication_configuration}"
   server_side_encryption_configuration = "${var.server_side_encryption_configuration}"
 
-  tags                                 = "${merge(var.tags, map("Name", format("%s", var.name_prefix)))}"
+  tags                                 = "${merge(var.tags, map("Name", format("%s", var.bucket_name)))}"
 }

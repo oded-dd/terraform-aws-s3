@@ -3,8 +3,8 @@ variable "create" {
   default     = true
 }
 
-variable "name_prefix" {
-  description = "(Required) Creates a unique bucket name beginning with the specified prefix"
+variable "bucket_name" {
+  description = "(Required) Creates a unique bucket name" 
   type        = "string"
 }
 
